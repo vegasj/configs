@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 " My Plugins here:
 "
 " original repos on github
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
@@ -73,10 +74,11 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
+let g:pymode_options_max_line_length = 120
 " Don't autofold code
 let g:pymode_folding = 0
-:colorscheme sail
+set background=dark
+:colorscheme solarized
 :syntax enable
 set number
 augroup reload_vimrc " {
@@ -87,5 +89,5 @@ set hidden
 " Enable the list of buffers
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+set guifont=Anonymous\ Pro\ for\ Powerline\ 10
 let g:airline_exclude_filenames = ['NERD_tree_1', 'MiniBufExplorer', 'Tagbar']
