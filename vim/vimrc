@@ -20,6 +20,8 @@ Plugin 'bling/vim-airline'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'mileszs/ack.vim'
+Plugin 'airblade/vim-gitgutter'
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
 "Plugin 'Tagbar'
@@ -55,7 +57,10 @@ set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 let g:airline_exclude_filenames = ['NERD_tree_1', 'MiniBufExplorer', 'Tagbar']
 let g:NERDTreeChDirMode = 2
 
-
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 " To open a new empty buffer
 " This replaces :tabnew which I used to bind to this mapping
 nmap <leader>T :enew<cr>
@@ -72,3 +77,8 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+
+set tabstop=4
+set expandtab
+set softtabstop=4
+set shiftwidth=4
