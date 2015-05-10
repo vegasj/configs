@@ -20,7 +20,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'scrooloose/syntastic'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'powerline/fonts'
+Plugin 'mileszs/ack.vim'
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
 "Plugin 'Tagbar'
@@ -73,3 +74,6 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+" For ycm, complete on enter
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+nnoremap <leader>g :YcmCompleter GoTo<CR>
