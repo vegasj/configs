@@ -15,12 +15,12 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'bling/vim-airline'
-Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'scrooloose/syntastic'
-Plugin 'mileszs/ack.vim'
+Plugin 'jmcantrell/vim-virtualenv'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'bling/vim-airline'
+Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'powerline/fonts'
 " Github repos of the user 'vim-scripts'
@@ -40,6 +40,9 @@ augroup vimrc_autocmds
     autocmd FileType python set nowrap
     augroup END
 map <F2> :NERDTreeToggle<CR>
+map <F3> :TagbarToggle<CR>
+map <F4> :bNext<CR>
+map <C-Tab> <C-w>w
 set background=dark
 set t_Co=16
 let g:solarized_termcolors=16
@@ -54,16 +57,13 @@ set hidden
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-set guifont=Anonymous\ Pro\ for\ Powerline\ 10
+set guifont=Anonymous\ Pro\ for\ Powerline\ 11
 let g:airline_exclude_filenames = ['NERD_tree_1', 'MiniBufExplorer', 'Tagbar']
 let g:NERDTreeChDirMode = 2
-
+"Display airline even if one window
+set laststatus=2
 " For ycm, complete on enter
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-nnoremap <leader>g :YcmCompleter GoTo<CR>
-set completeopt=longest,menuone
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 " To open a new empty buffer
 " This replaces :tabnew which I used to bind to this mapping
 nmap <leader>T :enew<cr>
