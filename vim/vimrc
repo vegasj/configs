@@ -41,7 +41,7 @@ augroup vimrc_autocmds
     augroup END
 map <F2> :NERDTreeToggle<CR>
 map <F3> :TagbarToggle<CR>
-map <F4> :bNext<CR>
+map <F4> :bnext<CR>
 map <C-Tab> <C-w>w
 set background=dark
 set t_Co=16
@@ -49,6 +49,7 @@ let g:solarized_termcolors=16
 :colorscheme solarized
 :syntax enable
 set number
+set mouse=a
 augroup reload_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -57,7 +58,7 @@ set hidden
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-set guifont=Anonymous\ Pro\ for\ Powerline\ 11
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 let g:airline_exclude_filenames = ['NERD_tree_1', 'MiniBufExplorer', 'Tagbar']
 let g:NERDTreeChDirMode = 2
 "Display airline even if one window
@@ -84,3 +85,11 @@ set tabstop=4
 set expandtab
 set softtabstop=4
 set shiftwidth=4
+:se titlestring=%{split(getcwd(),\'\/\')[-1]}
+" syntastic options
+let g:syntastic_python_flake8_args='--max-line-length=120'
+" Search options:Case insensitive unless search string 
+" contains caps. Also incremental search as you type.
+set ignorecase
+set smartcase
+set incsearch
