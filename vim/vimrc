@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundl
-" required! 
+" required!
 Plugin 'gmarik/Vundle.vim'
 
 " My Plugins here:
@@ -87,8 +87,9 @@ set softtabstop=4
 set shiftwidth=4
 :se titlestring=%{split(getcwd(),\'\/\')[-1]}
 " syntastic options
+let g:syntastic_python_flake8_exec='flake8-python2'
 let g:syntastic_python_flake8_args='--max-line-length=120'
-" Search options:Case insensitive unless search string 
+" Search options:Case insensitive unless search string
 " contains caps. Also incremental search as you type.
 set ignorecase
 set smartcase
